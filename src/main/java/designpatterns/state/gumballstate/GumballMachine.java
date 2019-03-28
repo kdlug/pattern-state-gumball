@@ -7,17 +7,20 @@ public class GumballMachine {
     State stateHasCoin;
     State stateGumSold;
 
+    State stateWinning;
+
     private int count = 0;
+
     // current state
     // interface type
     private State state;
-
     public GumballMachine(int gumAmount) {
         // creating concrete states
         this.stateNoGum = new StateNoGum(this);
         this.stateNoCoin = new StateNoCoin(this);
         this.stateHasCoin = new StateHasCoin(this);
         this.stateGumSold = new StateGumSold(this);
+        this.stateWinning = new StateWinning(this);
 
         this.setCount(gumAmount);
 
@@ -55,6 +58,10 @@ public class GumballMachine {
 
     public State getStateGumSold() {
         return stateGumSold;
+    }
+
+    public State getStateWinning() {
+        return stateWinning;
     }
 
     /**

@@ -1,10 +1,12 @@
 package designpatterns.state.gumballstate;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 class GumballMachineTest {
     @Test
+    @RepeatedTest(value = 10)
     void gumballMachine_GivenCoinAndTurnCrank_ExpectedNoCoinState() {
         GumballMachine gumballMachine = new GumballMachine(5);
         System.out.println(gumballMachine);

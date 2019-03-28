@@ -1,6 +1,9 @@
 package designpatterns.state.gumballstate;
 
+import java.util.Random;
+
 public class StateHasCoin implements State {
+    Random randomWinning = new Random(System.currentTimeMillis());
     private GumballMachine gumballMachine;
 
     public StateHasCoin(GumballMachine gumballMachine) {
@@ -21,14 +24,20 @@ public class StateHasCoin implements State {
     @Override
     public void turnCrank() {
         System.out.println("You turned crank...");
-        gumballMachine.setState(gumballMachine.getStateGumSold());
+        int winning = randomWinning.nextInt(10);
+
+        if (winning == 0) {
+            gumballMachine.setState(gumballMachine.getStateWinning());
+
+        } else {
+            gumballMachine.setState(gumballMachine.getStateGumSold());
+        }
     }
 
     @Override
     public void dispenseGum() {
         System.out.println("Please turn the crank first.");
     }
-
 
     @Override
     public String toString() {
