@@ -1,4 +1,4 @@
-package designpatterns.state.gumball;
+package designpatterns.state;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
