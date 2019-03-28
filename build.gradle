@@ -19,4 +19,22 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// allows us to write tests and extensions which use JUnit 5
+	testImplementation('org.junit.jupiter:junit-jupiter-api:5.3.1')
+	// allows us to run tests which use JUnit 5
+	testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.3.1')
+}
+
+test {
+	useJUnitPlatform()
+
+	maxHeapSize = '1G'
+
+	testLogging {
+		// enable logging output
+		// showStandardStreams = true
+
+		// Configure events which will be logged
+		events "passed", "skipped", "failed"
+	}
 }
